@@ -42,6 +42,15 @@ begin
    lum.subscribe(block: true) do |_delivery_info, _properties, body|
        checar_sensor(:luminosidade, body.to_i)
    end
+
+   temp.subscribe(block: true) do |_delivery_info, _properties, body|
+      checar_sensor(:temperatura, body.to_i)
+  end
+
+  fum.subscribe(block: true) do |_delivery_info, _properties, body|
+   checar_sensor(:fumaca, body.to_i)
+end
+
 rescue Interrupt => _
    connection.close
    exit(0)
