@@ -5,13 +5,15 @@
     <th>Name</th>
     <th>Level</th>
     <th>Actuator On?</th>
+    <th>Manual mode</th>
     <th>Actions</th>
 </tr>
 <% Enviroment.all.each do |e| %>
     <tr>
         <td><%= e.name %></td>
         <td><%= e.level %></td>
-        <td class="<%=e.actuator_state%>"><%= e.actuator_state %></td>
+        <td><%= e.actuator_state %></td>
+        <td><%= e.manual_mode %></td>
         <td><%= link_to('Edit', edit_enviroment_path(e)) %></td>
     </tr>
 <% end %>

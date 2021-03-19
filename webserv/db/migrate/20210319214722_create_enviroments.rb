@@ -4,6 +4,7 @@ class CreateEnviroments < ActiveRecord::Migration[5.1]
       t.string :name
       t.integer :level
       t.boolean :actuator_state
+      t.boolean :manual_mode, default: false
 
       t.timestamps
     end

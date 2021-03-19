@@ -1,5 +1,9 @@
 <%= form_with model: @env do |f| %>
-    <%= f.label 'Force actuator' %>
-    <%= f.check_box :actuator_state %>
+    <% if @env.manual_mode %>
+        <%= f.label 'Force actuator' %>
+        <%= f.check_box :actuator_state %>
+    <% end %>
+    <%= f.label 'Modo maual' %>
+    <%= f.check_box :manual_mode %>
     <%= f.submit %>
 <% end %>

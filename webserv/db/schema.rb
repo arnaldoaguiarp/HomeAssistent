@@ -15,7 +15,8 @@ ActiveRecord::Schema.define(version: 20210319214722) do
   create_table "enviroments", force: :cascade do |t|
     t.string "name"
     t.integer "level"
-    t.string "actuator_state"
+    t.boolean "actuator_state"
+    t.boolean "manual_mode", default: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end

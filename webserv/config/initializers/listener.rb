@@ -35,11 +35,16 @@ def process_message(queue_name, msg)
             level > 0
           end
 
-  msg = State.new(flag: state, level: level)
-  res = stub.set_remote(msg)
-  e = Enviroment.find_or_initialize_by(name: type)
+  e = Enviroment.find_or_initialize_by(name: type)        
+
+  if !e.manual_mode
+    msg = State.new(flag: state, level: level)
+    res = stub.set_remote(msg)
+    e.actuator_state = res.flag
+  end
+
+
   e.level = level
-  e.actuator_state = res.flag
   e.save if e.changed?
 end
 
