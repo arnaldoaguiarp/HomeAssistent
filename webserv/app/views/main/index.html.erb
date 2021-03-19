@@ -1,0 +1,40 @@
+<%= flash[:notice].try(:html_safe) %>
+
+<table>
+<tr>
+    <th>Name</th>
+    <th>Level</th>
+    <th>Actuator On?</th>
+    <th>Actions</th>
+</tr>
+<% Enviroment.all.each do |e| %>
+    <tr>
+        <td><%= e.name %></td>
+        <td><%= e.level %></td>
+        <td class="<%=e.actuator_state%>"><%= e.actuator_state %></td>
+        <td><%= link_to('Edit', edit_enviroment_path(e)) %></td>
+    </tr>
+<% end %>
+</table>
+
+<style>
+.t {
+    background-color: green;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    }
+
+    td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+    }
+
+    tr:nth-child(even) {
+    background-color: #dddddd;
+    }
+</style>

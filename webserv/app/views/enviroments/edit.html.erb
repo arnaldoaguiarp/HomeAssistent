@@ -1,0 +1,5 @@
+<%= form_with model: @env do |f| %>
+    <%= f.label 'Force actuator' %>
+    <%= f.check_box :actuator_state %>
+    <%= f.submit %>
+<% end %>

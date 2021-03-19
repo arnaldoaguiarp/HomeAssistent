@@ -12,4 +12,5 @@ exec ruby $DIR/sensor/smoke_sensor.rb&
 exec ruby $DIR/sensor/temp_sensor.rb&
 
 
-exec ruby $DIR/lssensor.rb
+cd $DIR/webserv
+exec rails s -p 3000

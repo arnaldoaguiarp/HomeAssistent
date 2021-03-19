@@ -6,7 +6,7 @@ class ActuatorServer < Actuator::Service
   end
 
   def set_remote(state_req, _unused_call)
-    puts("#{ARGV[1]} -> state: #{state_req.flag}, level: #{state_req.level} ")
+    # puts("#{ARGV[1]} -> state: #{state_req.flag}, level: #{state_req.level} ")
     @state = state_req.flag
     State.new(flag: state_req.flag)
   end
