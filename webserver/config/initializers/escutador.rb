@@ -7,7 +7,13 @@ connection.start
  
 # canal de comunicação
 channel = connection.create_channel
- 
+exchange = channel.fanout('logs')
+queue = channel.queue('', exclusive: true)
+
+queue.bind(exchange)
+
+puts ' [*] Waiting for logs. To exit press CTRL+C'
+
 LIMITES = {
    luminosidade: 50,
    temperatura: 30,

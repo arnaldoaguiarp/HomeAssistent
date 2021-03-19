@@ -7,7 +7,13 @@ connection.start
  
 # canal de comunicação
 channel = connection.create_channel
+exchange = channel.fanout('logs')
  
+#criação da mensagem
+message = ARGV.empty? ? 'Hello World!' : ARGV.join(' ')
+exchange.publish(message)
+puts " [x] Sent #{message}"
+
 # criamos uma fila no rabbitmq
 queue = channel.queue('luminosidade.sensor1')
  
